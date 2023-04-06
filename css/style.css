@@ -1,0 +1,81 @@
+html {
+    background: radial-gradient(farthest-corner at right top,#21A09D, #06182D);
+    height: 100%;
+    font-family: 'Roboto', cursive;
+}
+
+.conteudo {
+    padding: 10vh 3em 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+.principal {
+    flex-basis: auto;
+    min-width: 400px;
+    padding: 2em 1em 1em;
+    margin-left: 12%;
+    margin-right: 10%;
+    box-sizing: border-box;
+    display: flex;
+    background: #C5965F;
+    border-radius: 1px;
+    gap: 2em; 
+}
+  
+
+.adicionar {
+    width: 100%;
+}
+
+.adicionar input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.5em 0 1em;
+    padding: 1em 0.5em;
+    border-radius: 10px;
+    border: 2px solid #40112D;
+}
+
+.adicionar label {
+    display: block;
+}
+
+.cadastrar {
+    background-color: #40112D;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.lista {
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    list-style: none;
+    padding: 0.6em 2em;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin: 0 0 1em;
+    width: 70%;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 20px;
+}
+
+.item strong {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    Background: #C5965F;
+    font-weight: 400;
+}
+
