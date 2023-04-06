@@ -1,11 +1,17 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
+const itens = []
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault()  //evite um comportamento padrão
 
-     criaTarefa(evento.target.elements['nome'].value,
-     evento.target.elements['prioridade'].value)
+    const nome = evento.target.elements['nome']
+    const prioridade = evento.target.elements['prioridade']
+
+     criaTarefa(nome.value, prioridade.value)
+
+    nome.value = ""
+    prioridade.value = ""
 })
 
 function criaTarefa(nome, prioridade){
@@ -35,10 +41,16 @@ function criaTarefa(nome, prioridade){
     novoItem.innerHTML += nome
 
 
-    // Buscando a lista do html e adicionando o novoItem na lista
-    
+    // Pegando a lista declarada la em cima e adicionando o novoItem
     lista.appendChild(novoItem)
 
+    const itemAtual = {
+        "nome": nome,
+        "prioridade": prioridade
+    }
 
-    
+    itens.push(itemAtual)
+
+    localStorage.setItem("item", JSON.stringify(itens))
+
 }
