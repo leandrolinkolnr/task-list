@@ -1,6 +1,11 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
-const itens = []
+const itens = JSON.parse(localStorage.getItem("itens")) || []
+
+
+itens.forEach((elemento) => {
+    criaTarefa(elemento)
+});
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault()  //evite um comportamento padrão
@@ -10,26 +15,44 @@ form.addEventListener("submit", (evento) => {
 
      criaTarefa(nome.value, prioridade.value)
 
+    const itemAtual = {
+        "nome": nome.value,
+        "prioridade": prioridade.value
+    }
+
+    criaTarefa(itemAtual)
+
+    itens.push(itemAtual)
+
+    localStorage.setItem("itens", JSON.stringify(itens))
+
     nome.value = ""
     prioridade.value = ""
+
 })
 
-function criaTarefa(nome, prioridade){
+
+
+
+
+
+
+function criaTarefa(item){
     // Exemplo de um item no html
     // <li class="item"><strong>2</strong>English</li> 
 
-    const novoItem = document.createElement('li')
+    const novoItem = document.createElement("li")
                                // novoItem = <li>
 
     novoItem.classList.add("item")
                   // novoItem = <li class="Item">
 
-    const numeroItem = document.createElement('strong')
+    const numeroItem = document.createElement("strong")
                             // numeroItem = <strong>
 
                             
             // adicionou o numero prioridade ao numeroItem
-    numeroItem.innerHTML = prioridade    
+    numeroItem.innerHTML = item.prioridade    
     
    
 
@@ -38,19 +61,12 @@ function criaTarefa(nome, prioridade){
     novoItem.appendChild(numeroItem)
 
             //Adicionando o nome ao novoItem
-    novoItem.innerHTML += nome
+    novoItem.innerHTML += item.nome
 
 
     // Pegando a lista declarada la em cima e adicionando o novoItem
     lista.appendChild(novoItem)
 
-    const itemAtual = {
-        "nome": nome,
-        "prioridade": prioridade
-    }
-
-    itens.push(itemAtual)
-
-    localStorage.setItem("item", JSON.stringify(itens))
+    
 
 }
