@@ -13,8 +13,6 @@ form.addEventListener("submit", (evento) => {
     const nome = evento.target.elements['nome']
     const prioridade = evento.target.elements['prioridade']
 
-     criaTarefa(nome.value, prioridade.value)
-
     const itemAtual = {
         "nome": nome.value,
         "prioridade": prioridade.value
@@ -30,10 +28,6 @@ form.addEventListener("submit", (evento) => {
     prioridade.value = ""
 
 })
-
-
-
-
 
 
 
@@ -66,7 +60,5 @@ function criaTarefa(item){
 
     // Pegando a lista declarada la em cima e adicionando o novoItem
     lista.appendChild(novoItem)
-
-    
 
 }
